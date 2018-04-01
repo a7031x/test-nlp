@@ -28,6 +28,7 @@ object MyApp extends App {
     val document = new Annotation("克林顿说，华盛顿将逐步落实对韩国的经济援助。金大中对克林顿的讲话报以掌声：克林顿总统在会谈中重申，他坚定地支持韩国摆脱经济危机。")
     pipeline.annotate(document)
     for (sentence <- document.get(classOf[SentencesAnnotation])) {
+      println(s"sentence: ${sentence.toString}")
       for(token <- sentence.get(classOf[TokensAnnotation])) {
         val word = token.get(classOf[TextAnnotation])
         val pos = token.get(classOf[PartOfSpeechAnnotation])
